@@ -1,0 +1,19 @@
+<button (click)="goBack()">go back</button>
+
+<h2>Create article</h2>
+
+<form [formGroup]="articleCreateForm" (ngSubmit)="onSubmit()">
+
+  <div>
+    <label for="title">Title</label>
+    <input class="title" type="text" formControlName="title" name="title" />
+  </div>
+
+  <div>
+    <label for="body">Body</label>
+    <textarea class="body" type="body" formControlName="body" name="body" rows="5"></textarea>
+  </div>
+
+  <button type="submit">Create</button>
+
+</form>
