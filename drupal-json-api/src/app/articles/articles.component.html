@@ -1,0 +1,15 @@
+<h1>Articles</h1>
+
+<ul class="articles">
+  <li *ngFor="let article of articles">
+    <span hidden>{{article.nid[0].value}}</span>
+    <a routerLink="/article/{{article.nid[0].value}}">
+      <h2>{{article.title[0].value}}</h2>
+    </a>
+    <p innerHTML="{{article.body[0].value}}"></p>
+  </li> 
+</ul>
+
+<div *ngIf="!articles">
+  loading...
+</div>

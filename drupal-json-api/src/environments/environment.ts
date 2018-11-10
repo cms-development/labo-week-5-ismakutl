@@ -8,6 +8,7 @@ export const environment = {
     url: 'http://localhost:8888/drupal/',
     rest: 'api/export/',
     type: {
+      article: 'article',
       articles: 'articles'
     },
     format: '?_format=hal_json',

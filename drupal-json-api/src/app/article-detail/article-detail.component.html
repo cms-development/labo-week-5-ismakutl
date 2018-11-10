@@ -1,0 +1,12 @@
+<div *ngIf="article">
+
+  <button (click)="goBack()">go back</button>
+  <h2>{{article.title[0].value}}</h2>
+  <p><em>Created at: {{article.created[0].value}}</em></p>
+  <p innerHTML="{{article.body[0].value}}"></p>
+  
+</div>
+
+<div *ngIf="!article">
+  loading...
+</div>

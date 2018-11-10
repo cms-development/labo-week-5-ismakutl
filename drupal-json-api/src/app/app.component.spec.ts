@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'drupal-json-api'`, () => {
+  it(`should have as title 'angular-wp-rest'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('drupal-json-api');
+    expect(app.title).toEqual('angular-wp-rest');
   });
 
   it('should render title in a h1 tag', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to drupal-json-api!');
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to angular-wp-rest!');
   });
 });

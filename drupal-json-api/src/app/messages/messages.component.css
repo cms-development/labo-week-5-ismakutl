@@ -1,0 +1,27 @@
+.flash-message {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: green;
+  color: white;
+  width: calc(100% - 30px);
+  margin: 15px;
+  padding: 8px 0;
+  opacity: .95;
+  line-height: 1.5em;
+  text-align: center;
+}
+
+.flash-message button.clear {
+  position: absolute;
+  top: 4px;
+  right: 15px;
+  border: none;
+  background: transparent;
+  color: white;
+  padding: 8px;
+  cursor: pointer;
+}
+.flash-message button.clear:hover {
+  color: red;
+}
