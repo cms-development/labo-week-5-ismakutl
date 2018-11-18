@@ -3,7 +3,7 @@ import { Location } from '@angular/common';
 import { FormGroup } from '@angular/forms';
 
 import { Article } from '../models/article';
-import { ArticleService } from '../article.service';
+import { ArticleService } from '../services/article/article.service';
 
 @Component({
   selector: 'app-article-create',

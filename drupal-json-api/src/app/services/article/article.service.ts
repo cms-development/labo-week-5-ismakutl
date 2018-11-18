@@ -4,9 +4,9 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
-import { environment } from './../environments/environment';
-import { MessageService } from './message.service';
-import { Article } from './models/article';
+import { environment } from '../../../environments/environment';
+import { MessageService } from '../message/message.service';
+import { Article } from '../../models/article';
 
 @Injectable({
   providedIn: 'root',
@@ -17,6 +17,9 @@ export class ArticleService {
   }${environment.drupal.type.articles}`;
   private drupalRestArticle = `${environment.drupal.url}${
     environment.drupal.type.article
+  }`;
+  private drupalRestPostArticle = `${environment.drupal.url}node${
+    environment.drupal.format
   }`;
   constructor(
     private messageService: MessageService,
@@ -61,22 +64,20 @@ export class ArticleService {
   }
   postArticle(body: any): Observable<Article> {
     return this.httpClient
-      .post<Article>(
-        'http://localhost:8888/drupal/node?_format=hal_json',
-        body,
-        {
-          headers: new HttpHeaders({
-            'Authorization': 'Basic Y21zZGV2LXVzZXI6Y21zZGV2LXBhc3M=',
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            'X-CSRF-Token': 'eVtzwgG7-U5JjKQ169Ku_NdfNFSpXGmPinALuYd3AqE',
-          })
-        }
-      )
+      .post<Article>(this.drupalRestPostArticle, body, {
+        headers: new HttpHeaders({
+          Authorization: 'Basic Y21zZGV2LXVzZXI6Y21zZGV2LXBhc3M=',
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          'X-CSRF-Token': 'eVtzwgG7-U5JjKQ169Ku_NdfNFSpXGmPinALuYd3AqE',
+        }),
+      })
       .pipe(
         tap(article => {
-          console.log(article);
-          return this.log(`Succesfully created an article. ${article.title[0].value}`);
+          // console.log(article);
+          return this.log(
+            `Succesfully created an article. ${article.title[0].value}`,
+          );
         }),
         catchError(this.handleError<Article>()),
       );

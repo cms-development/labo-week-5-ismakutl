@@ -10,6 +10,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { ArticleDetailComponent } from './article-detail/article-detail.component';
 import { ArticleCreateComponent } from './article-create/article-create.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ArticleCreateComponent } from './article-create/article-create.componen
     MessagesComponent,
     ArticlesComponent,
     ArticleDetailComponent,
-    ArticleCreateComponent
+    ArticleCreateComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
